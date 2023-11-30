@@ -1,0 +1,12 @@
+.DS_store
+a.out
+*/a.out
+*/*.o
+*.o
+*.exe
+*.a
+*/*.a
+.vscode/
+.editorconfig
+.metals/
+solve_day
