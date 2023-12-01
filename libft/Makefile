@@ -6,7 +6,7 @@
 #    By: bebrandt <benoit.brandt@proton.me>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 17:15:49 by bebrandt          #+#    #+#              #
-#    Updated: 2023/11/24 19:27:04 by bebrandt         ###   ########.fr        #
+#    Updated: 2023/11/25 00:46:55 by bebrandt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,17 +20,11 @@ SRCS	=	ft_atoi.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
 			ft_strtrim.c ft_split.c ft_itoa.c ft_itoa_hex.c ft_itoa_uint.c \
 			ft_strmapi.c ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c \
 			ft_putnbr_hex_fd.c ft_putnbr_uint_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
-			ft_get_next_line.c ft_get_next_line_utils.c
-
-SRCS_BONUS	=	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
-				ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c \
-				ft_lstclear.c ft_lstiter.c ft_lstmap.c
+			ft_get_next_line.c ft_get_next_line_utils.c \
+			ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
+			ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
 OBJS		:=	$(SRCS:.c=.o)
-
-OBJS_BONUS	:=	$(SRCS_BONUS:.c=.o)
-
-OBJS_ALL	=	$(OBJS) $(OBJS_BONUS)
 
 HDRS		=	-I .
 
@@ -50,16 +44,12 @@ all:	$(NAME)
 $(NAME):	$(OBJS)
 	$(AR) $(NAME) $^
 
-bonus:	$(OBJS_ALL)
-	$(AR) $(NAME) $^
-	$(LIB) $(NAME)
-
 clean:
-	$(RM) $(OBJS_ALL)
+	$(RM) $(OBJS)
 
 fclean:	clean
 	$(RM) $(NAME)
 
 re:	fclean all
 
-.PHONY: all bonus clean fclean re
+.PHONY: all clean fclean re

@@ -6,7 +6,7 @@
 /*   By: bebrandt <benoit.brandt@proton.me>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 19:48:16 by bebrandt          #+#    #+#             */
-/*   Updated: 2023/11/30 19:49:32 by bebrandt         ###   ########.fr       */
+/*   Updated: 2023/12/01 06:58:33 by bebrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,6 @@ int		file_not_exist(void);
 // display function
 
 void	display_struct(t_list *lst, char data);
+void	display_str_array(char	**tab);
 
 #endif

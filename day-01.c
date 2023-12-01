@@ -6,27 +6,172 @@
 /*   By: bebrandt <benoit.brandt@proton.me>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 19:47:31 by bebrandt          #+#    #+#             */
-/*   Updated: 2023/11/24 20:51:54 by bebrandt         ###   ########.fr       */
+/*   Updated: 2023/12/01 07:36:22 by bebrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "days.h"
 
-static void	first_part(int day);
-static void	second_part(int day);
+static int	first_part(void);
+static int	second_part(void);
+static int	ft_get_calibration(t_list *input);
+static int	ft_get_calibration_filter(t_list *input);
+static int	check_occurence(char *str);
 
 void	day_01(void)
 {
-	first_part(1);
-	second_part(1);
+	first_part();
+	second_part();
 }
 
-void	first_part(int day)
+int	first_part(void)
 {
-	ft_printf("first part result day %.2d\n", day);
+	t_list	*input;
+	int			fd;
+	int			calibration;
+	char		*file;
+
+	file = "input/day-01.txt";
+	fd = open(file, O_RDONLY);
+	input = from_txt_to_struct_of_str(fd);
+	display_struct(input, 's');
+	calibration = ft_get_calibration(input);
+	close(fd);
+	ft_printf("calibration : %d\n", calibration);
+	return (0);
 }
 
-void	second_part(int day)
+int	second_part(void)
 {
-	ft_printf("second part result day %.2d\n", day);
+	t_list	*input;
+	int			fd;
+	int			calibration;
+	char		*file;
+
+	file = "input/day-01.txt";
+	fd = open(file, O_RDONLY);
+	input = from_txt_to_struct_of_str(fd);
+	display_struct(input, 's');
+	calibration = ft_get_calibration_filter(input);
+	close(fd);
+	ft_printf("calibration : %d\n", calibration);
+	return (0);
+}
+
+static int	ft_get_calibration(t_list *input)
+{
+	char		*digit;
+	int			i;
+	int			j;
+	int			sum;
+	t_list	*tmp;
+
+	digit = ft_calloc(3, sizeof(char));
+	digit[2] = '\0';
+	tmp = input;
+	sum = 0;
+	while (tmp)
+	{
+		i = 0;
+		j = 0;
+		while (((char *)(tmp->content))[i])
+		{
+			if (ft_isdigit(((char *)(tmp->content))[i]))
+			{
+				if (j == 0)
+				{
+					digit[0] = ((char *)(tmp->content))[i];
+					digit[1] = ((char *)(tmp->content))[i];
+					j++;
+				}
+				else
+					digit[j] = ((char *)(tmp->content))[i];
+			}
+			i++;
+		}
+		ft_printf("digit: %s\n", digit);
+		sum += ft_atoi(digit);
+		tmp = tmp->next;
+	}
+	return (sum);
+}
+
+static int	ft_get_calibration_filter(t_list *input)
+{
+	char		*digit;
+	int			i;
+	int			char_digit;
+	int			j;
+	int			sum;
+	t_list	*tmp;
+
+	digit = ft_calloc(3, sizeof(char));
+	digit[2] = '\0';
+	tmp = input;
+	sum = 0;
+	while (tmp)
+	{
+		i = 0;
+		j = 0;
+		while (((char *)(tmp->content))[i])
+		{
+			if (ft_isdigit(((char *)(tmp->content))[i]))
+			{
+				if (j == 0)
+				{
+					digit[0] = ((char *)(tmp->content))[i];
+					digit[1] = ((char *)(tmp->content))[i];
+					j++;
+				}
+				else
+					digit[j] = ((char *)(tmp->content))[i];
+			}
+			else if (check_occurence(((char *)(tmp->content)) + i) != -1)
+			{
+				char_digit = check_occurence(((char *)(tmp->content)) + i);
+				// ft_printf("char digit : %d\n", char_digit);
+				// ft_printf("j : %d\n", j);
+				if (j == 0)
+				{
+					digit[0] = char_digit + 48;
+					digit[1] = char_digit + 48;
+					j++;
+				}
+				else
+					digit[j] = char_digit + 48;
+			}
+			i++;
+		}
+		ft_printf("digit: %s\n", digit);
+		sum += ft_atoi(digit);
+		tmp = tmp->next;
+	}
+	return (sum);
+}
+
+static int check_occurence(char *str)
+{
+	char		*tenth_str;
+	char		**tenth_tab;
+	int			i;
+	int			digit;
+
+	// ft_printf("str: %s\n", str);
+	tenth_str = "zero,one,two,three,four,five,six,seven,eight,nine";
+	tenth_tab = ft_split(tenth_str, ',');
+	// display_str_array(tenth_tab);
+	if (ft_strlen(str) < 3)
+		return (-1);
+	i = 0;
+	digit = -1;
+	while (tenth_tab[i])
+	{
+		if (ft_strnstr(str, tenth_tab[i], ft_strlen(tenth_tab[i])))
+		{
+			digit = i;
+			break ;
+		}
+		i++;
+	}
+	return (digit);
 }

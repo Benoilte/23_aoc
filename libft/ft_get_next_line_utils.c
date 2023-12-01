@@ -5,25 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bebrandt <benoit.brandt@proton.me>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 11:57:30 by bebrandt          #+#    #+#             */
-/*   Updated: 2023/11/24 19:26:19 by bebrandt         ###   ########.fr       */
+/*   Created: 2023/11/02 11:52:50 by bebrandt          #+#    #+#             */
+/*   Updated: 2023/12/01 06:16:44 by bebrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include "libft.h"
 
-/*
-Returns number of characters that precede the terminating NULL character
-*/
-size_t	ft_strlen(const char *s)
-{
-	size_t	len;
-
-	len = 0;
-	while (s[len])
-		len++;
-	return (len);
-}
 
 /*
 Add new elem. at the end of the list.
@@ -95,31 +84,5 @@ int	ft_count_line_chars(t_gnl_lst *lst)
 		len += ft_strlen(tmp->str);
 		tmp = tmp->next;
 	}
-	return (len);
-}
-
-/*
-copies up to dstsize - 1 characters from the string src to dst.
-return the total length of the strings it tried to create.
-If the return value is >= dstsize, the output string has been truncated.
-*/
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
-{
-	long unsigned int	i;
-	long unsigned int	len;
-
-	i = 0;
-	if (size)
-	{
-		while (src[i] && (size - 1) != i)
-		{
-			dest[i] = src[i];
-			i++;
-		}
-		dest[i] = '\0';
-	}
-	len = 0;
-	while (src[len])
-		len++;
 	return (len);
 }
