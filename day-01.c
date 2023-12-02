@@ -6,7 +6,7 @@
 /*   By: bebrandt <benoit.brandt@proton.me>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 19:47:31 by bebrandt          #+#    #+#             */
-/*   Updated: 2023/12/01 07:36:22 by bebrandt         ###   ########.fr       */
+/*   Updated: 2023/12/01 18:14:54 by bebrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,21 +152,21 @@ static int	ft_get_calibration_filter(t_list *input)
 static int check_occurence(char *str)
 {
 	char		*tenth_str;
-	char		**tenth_tab;
+	char		**zero_to_nine;
 	int			i;
 	int			digit;
 
 	// ft_printf("str: %s\n", str);
 	tenth_str = "zero,one,two,three,four,five,six,seven,eight,nine";
-	tenth_tab = ft_split(tenth_str, ',');
-	// display_str_array(tenth_tab);
+	zero_to_nine = ft_split(tenth_str, ',');
+	// display_str_array(zero_to_nine);
 	if (ft_strlen(str) < 3)
 		return (-1);
 	i = 0;
 	digit = -1;
-	while (tenth_tab[i])
+	while (zero_to_nine[i])
 	{
-		if (ft_strnstr(str, tenth_tab[i], ft_strlen(tenth_tab[i])))
+		if (ft_strnstr(str, zero_to_nine[i], ft_strlen(zero_to_nine[i])))
 		{
 			digit = i;
 			break ;

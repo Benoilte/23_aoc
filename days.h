@@ -6,7 +6,7 @@
 /*   By: bebrandt <benoit.brandt@proton.me>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 19:48:16 by bebrandt          #+#    #+#             */
-/*   Updated: 2023/12/01 06:58:33 by bebrandt         ###   ########.fr       */
+/*   Updated: 2023/12/02 07:02:54 by bebrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int		count_line(int fd);
 
 void	*copy(void *content);
 int		power_of_two(int n);
+int		ft_get_digit(const char *s, int *j);
 
 // safe free function
 
