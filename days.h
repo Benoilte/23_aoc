@@ -6,7 +6,7 @@
 /*   By: bebrandt <benoit.brandt@proton.me>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 19:48:16 by bebrandt          #+#    #+#             */
-/*   Updated: 2023/12/02 07:02:54 by bebrandt         ###   ########.fr       */
+/*   Updated: 2023/12/03 22:01:03 by bebrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,27 @@ int		file_not_exist(void);
 // display function
 
 void	display_struct(t_list *lst, char data);
-void	display_str_array(char	**tab);
+void	display_str_array(char **tab);
+void	display_int_array(int *tab, int size);
+
+// day 03 utils - lst
+int		is_sym(char c);
+int		is_star(char c);
+int		*set_xy(int x, int y);
+char	*convert_xy_to_str(int x, int y);
+
+typedef struct s_ord
+{
+	char			*ord;
+	int				p_num_1;
+	int				p_num_2;
+	struct s_ord	*next;
+}		t_ord;
+
+void	lstord_iter(t_ord **lst, char *xy, int p_num);
+t_ord	*lstord_new(char *xy, int p_num);
+void	lstord_addback(t_ord **lst, t_ord *new);
+void	lstord_add_pnum(t_ord *lst, int p_num);
+int		gear_ratio(t_ord *lst);
 
 #endif

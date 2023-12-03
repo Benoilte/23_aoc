@@ -6,7 +6,7 @@
 #    By: bebrandt <benoit.brandt@proton.me>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/24 14:22:06 by bebrandt          #+#    #+#              #
-#    Updated: 2023/12/01 00:22:12 by bebrandt         ###   ########.fr        #
+#    Updated: 2023/12/03 21:00:37 by bebrandt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRCS	=	day-01.c day-02.c day-03.c day-04.c day-05.c day-06.c day-07.c \
 				day-15.c day-16.c day-17.c day-18.c day-18.c day-19.c day-20.c \
 				day-21.c day-22.c day-23.c day-24.c day-25.c \
 				get_input_to_struct.c get_input_to_array.c safe_free.c error.c \
-				display.c daily-utils.c
+				display.c daily-utils.c day-03-utils.c day-03-lst.c
 
 OBJS		:=	$(SRCS:.c=.o)
 

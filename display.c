@@ -6,7 +6,7 @@
 /*   By: bebrandt <benoit.brandt@proton.me>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 09:38:26 by bebrandt          #+#    #+#             */
-/*   Updated: 2023/11/30 09:14:22 by bebrandt         ###   ########.fr       */
+/*   Updated: 2023/12/03 11:07:31 by bebrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,18 @@ void	display_str_array(char	**tab)
 	while (tab[i])
 	{
 		ft_printf("str[%d] = %s\n", i, tab[i]);
+		i++;
+	}
+}
+
+void	display_int_array(int *tab, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i < size)
+	{
+		ft_printf("int[%d] = %d\n", i, tab[i]);
 		i++;
 	}
 }
