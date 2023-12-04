@@ -6,7 +6,7 @@
 /*   By: bebrandt <benoit.brandt@proton.me>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 19:48:16 by bebrandt          #+#    #+#             */
-/*   Updated: 2023/12/03 22:01:03 by bebrandt         ###   ########.fr       */
+/*   Updated: 2023/12/04 08:19:34 by bebrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,14 @@ t_list	*from_txt_to_struct_of_str(int fd);
 int		*from_txt_to_array_of_int(int fd, int size);
 char	**from_txt_to_array_of_str(int fd, int size);
 int		count_line(int fd);
+int		*get_int_ptr(int value);
 
 //daily function
 
 void	*copy(void *content);
 int		power_of_two(int n);
 int		ft_get_digit(const char *s, int *j);
+int		ft_sum(int *num, int size);
 
 // safe free function
 
@@ -91,5 +93,11 @@ t_ord	*lstord_new(char *xy, int p_num);
 void	lstord_addback(t_ord **lst, t_ord *new);
 void	lstord_add_pnum(t_ord *lst, int p_num);
 int		gear_ratio(t_ord *lst);
+
+// day 04 utils
+
+char	**parse_win_num(char *str);
+char	**parse_my_num(char *str);
+void	add_copy(int i, int n, int *copy, int size);
 
 #endif

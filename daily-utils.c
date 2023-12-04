@@ -6,7 +6,7 @@
 /*   By: bebrandt <benoit.brandt@proton.me>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 20:56:37 by bebrandt          #+#    #+#             */
-/*   Updated: 2023/12/03 08:04:49 by bebrandt         ###   ########.fr       */
+/*   Updated: 2023/12/04 08:20:35 by bebrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,16 @@ int	ft_get_digit(const char *s, int *j)
 	free(str_digit);
 	*j += end;
 	return (num);
+}
+
+int	ft_sum(int *num, int size)
+{
+	int	i;
+	int sum;
+
+	i = 0;
+	sum = 0;
+	while (i < size)
+		sum += num[i++];
+	return (sum);
 }

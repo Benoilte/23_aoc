@@ -6,13 +6,11 @@
 /*   By: bebrandt <benoit.brandt@proton.me>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 23:35:55 by bebrandt          #+#    #+#             */
-/*   Updated: 2023/11/28 21:55:18 by bebrandt         ###   ########.fr       */
+/*   Updated: 2023/12/04 07:39:41 by bebrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "days.h"
-
-static int	*get_int_ptr(int value);
 
 /*
 parse txt file and return a linked list of struct with a int as member.

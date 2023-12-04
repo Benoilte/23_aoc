@@ -6,7 +6,7 @@
 /*   By: bebrandt <benoit.brandt@proton.me>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 21:01:03 by bebrandt          #+#    #+#             */
-/*   Updated: 2023/12/03 22:00:48 by bebrandt         ###   ########.fr       */
+/*   Updated: 2023/12/03 22:35:05 by bebrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	lstord_add_pnum(t_ord *lst, int p_num)
 		lst->p_num_2 = p_num;
 }
 
-int		gear_ratio(t_ord *lst)
+int	gear_ratio(t_ord *lst)
 {
 	t_ord	*tmp;
 	int		ratio;
