@@ -6,7 +6,7 @@
 /*   By: bebrandt <benoit.brandt@proton.me>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 19:48:16 by bebrandt          #+#    #+#             */
-/*   Updated: 2023/12/04 08:19:34 by bebrandt         ###   ########.fr       */
+/*   Updated: 2023/12/05 07:37:28 by bebrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,9 @@ int		file_not_exist(void);
 
 // display function
 
-void	display_struct(t_list *lst, char data);
-void	display_str_array(char **tab);
-void	display_int_array(int *tab, int size);
+void	display_struct(t_list *lst, char data, char *text);
+void	display_str_array(char **tab, char *text);
+void	display_int_array(int *tab, int size, char *text);
 
 // day 03 utils - lst
 int		is_sym(char c);
@@ -99,5 +99,9 @@ int		gear_ratio(t_ord *lst);
 char	**parse_win_num(char *str);
 char	**parse_my_num(char *str);
 void	add_copy(int i, int n, int *copy, int size);
+
+// day 05 utils
+
+void	set_map_str(t_list *map, int fd);
 
 #endif

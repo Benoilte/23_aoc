@@ -6,7 +6,7 @@
 /*   By: bebrandt <benoit.brandt@proton.me>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 20:04:30 by bebrandt          #+#    #+#             */
-/*   Updated: 2023/12/04 08:38:08 by bebrandt         ###   ########.fr       */
+/*   Updated: 2023/12/05 06:31:37 by bebrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,5 @@ static int	count_instances(t_list *match)
 		add_copy(i + 1, *((int *)(tmp->content)), copy, size);
 		i++;
 		tmp = tmp->next;
-	}
-	return  (ft_sum(copy, size));
+	}	return  (ft_sum(copy, size));
 }
