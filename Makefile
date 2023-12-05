@@ -6,7 +6,7 @@
 #    By: bebrandt <benoit.brandt@proton.me>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/24 14:22:06 by bebrandt          #+#    #+#              #
-#    Updated: 2023/12/05 06:33:31 by bebrandt         ###   ########.fr        #
+#    Updated: 2023/12/05 08:26:40 by bebrandt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,27 +41,31 @@ RM			=	rm -f
 all: libft $(NAME)
 
 %.o:	%.c
-	$(CC) $(HDRS) $(CFLAGS) -c $< -o $@
+	@$(CC) $(HDRS) $(CFLAGS) -c $< -o $@
 
 $(NAME):	main.c $(OBJS) $(LIB_AOC)
-	$(CC) $(HDRS) $(CFLAGS) main.c -L . $(LIB_AOC) -g -o $(NAME)
+	@$(CC) $(HDRS) $(CFLAGS) main.c -L . $(LIB_AOC) -g -o $(NAME)
+	@echo "You are now ready to solve your daily challenge"
 
 libft:
-	$(MAKE) -C $(PRINTF_DIR)
-	cp $(PRINTF_DIR)/$(PRINTF_NAME) $(LIB_AOC)
+	@$(MAKE) -C $(PRINTF_DIR) --silent
+	@cp $(PRINTF_DIR)/$(PRINTF_NAME) $(LIB_AOC)
+	@echo "# LIBFTPRINTF was created #"
 
 $(LIB_AOC): $(OBJS)
-	$(AR) $(LIB_AOC) $^
+	@$(AR) $(LIB_AOC) $^
 
 clean:
-	$(MAKE) -C $(PRINTF_DIR) clean
-	$(RM) $(OBJS)
-	$(RM) main.o
-	$(RM) $(LIB_AOC)
+	@$(MAKE) -C $(PRINTF_DIR) clean --silent
+	@$(RM) $(OBJS)
+	@$(RM) main.o
+	@$(RM) $(LIB_AOC)
+	@echo "# BINARY FILE DELETED # "
 
 fclean:	clean
-	$(MAKE) -C $(PRINTF_DIR) fclean
-	$(RM) $(NAME)
+	@$(MAKE) -C $(PRINTF_DIR) fclean --silent
+	@$(RM) $(NAME)
+	@echo "# EXECUTABLE  DELETED # "
 
 re:	fclean all
 

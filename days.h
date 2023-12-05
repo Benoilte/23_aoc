@@ -6,7 +6,7 @@
 /*   By: bebrandt <benoit.brandt@proton.me>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 19:48:16 by bebrandt          #+#    #+#             */
-/*   Updated: 2023/12/05 07:37:28 by bebrandt         ###   ########.fr       */
+/*   Updated: 2023/12/05 15:58:20 by bebrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	*copy(void *content);
 int		power_of_two(int n);
 int		ft_get_digit(const char *s, int *j);
 int		ft_sum(int *num, int size);
+void	ft_initialize_lst(t_list *lst, int size);
 
 // safe free function
 
@@ -73,6 +74,7 @@ int		file_not_exist(void);
 void	display_struct(t_list *lst, char data, char *text);
 void	display_str_array(char **tab, char *text);
 void	display_int_array(int *tab, int size, char *text);
+void	display_long_int_array(long *tab, int size, char *text);
 
 // day 03 utils - lst
 int		is_sym(char c);
@@ -102,6 +104,7 @@ void	add_copy(int i, int n, int *copy, int size);
 
 // day 05 utils
 
-void	set_map_str(t_list *map, int fd);
+t_list	*set_range(char *line, int fd);
+long	*convert_strptr_to_intptr(char **seeds, int size);
 
 #endif

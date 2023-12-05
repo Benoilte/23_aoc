@@ -6,7 +6,7 @@
 /*   By: bebrandt <benoit.brandt@proton.me>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 20:56:37 by bebrandt          #+#    #+#             */
-/*   Updated: 2023/12/04 08:20:35 by bebrandt         ###   ########.fr       */
+/*   Updated: 2023/12/05 13:05:38 by bebrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,18 @@ int	ft_sum(int *num, int size)
 	while (i < size)
 		sum += num[i++];
 	return (sum);
+}
+
+void	ft_initialize_lst(t_list *lst, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i < size)
+	{
+		ft_printf("i: &d\n", i);
+		lst[i].content = NULL;
+		lst[i].next = NULL;
+		i++;
+	}
 }

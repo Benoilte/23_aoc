@@ -6,7 +6,7 @@
 /*   By: bebrandt <benoit.brandt@proton.me>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 19:47:31 by bebrandt          #+#    #+#             */
-/*   Updated: 2023/12/01 18:14:54 by bebrandt         ###   ########.fr       */
+/*   Updated: 2023/12/05 08:27:27 by bebrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	first_part(void)
 	file = "input/day-01.txt";
 	fd = open(file, O_RDONLY);
 	input = from_txt_to_struct_of_str(fd);
-	display_struct(input, 's');
+	display_struct(input, 's', "line");
 	calibration = ft_get_calibration(input);
 	close(fd);
 	ft_printf("calibration : %d\n", calibration);
@@ -51,7 +51,7 @@ int	second_part(void)
 	file = "input/day-01.txt";
 	fd = open(file, O_RDONLY);
 	input = from_txt_to_struct_of_str(fd);
-	display_struct(input, 's');
+	display_struct(input, 's', "line");
 	calibration = ft_get_calibration_filter(input);
 	close(fd);
 	ft_printf("calibration : %d\n", calibration);
