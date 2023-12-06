@@ -6,7 +6,7 @@
 /*   By: bebrandt <benoit.brandt@proton.me>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 20:04:42 by bebrandt          #+#    #+#             */
-/*   Updated: 2023/12/05 17:43:20 by bebrandt         ###   ########.fr       */
+/*   Updated: 2023/12/05 23:00:47 by bebrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static long	get_lowest_location(t_list *maps, long *source, long size);
 static void	find_next_detination(t_list *ranges, long *source, long size);
-static long	*get_seeds_range(char **seeds, long *size);
+static long	**get_seeds_range(char **seeds, long *size);
 
 void	day_05(void)
 {
@@ -24,7 +24,9 @@ void	day_05(void)
 	char	**seeds;
 	t_list  *maps;
 	long	*source;
+	long	**source_range;
 	long	size;
+	long	i;
 
 	file = "input/day-05.txt";
 	fd = open(file, O_RDONLY);
@@ -43,42 +45,35 @@ void	day_05(void)
 	source = convert_strptr_to_intptr(seeds, size);
 	ft_printf("lowest location: %u\n", get_lowest_location(maps, source, size));
 	free(source);
-	source = get_seeds_range(seeds, &size);
+	source_range = get_seeds_range(seeds, &size);
+	i = 0;
+	while (i < (size / 2))
+	{
+		ft_printf("min - max\n");
+		display_long_int_array(source_range[i++], 2, "min_max");
+	}
 	// display_long_int_array(source, size, "source");
-	ft_printf("lowest location 2: %u\n", get_lowest_location(maps, source, size));
+	// ft_printf("lowest location 2: %u\n", get_lowest_location(maps, source, size));
 }
 
-static long	*get_seeds_range(char **seeds, long *size)
+static long	**get_seeds_range(char **seeds, long *size)
 {
 	long	*source;
-	long	*source_range;
-	long	len;
+	long	**source_range;
+	// long	len;
 	long	i;
-	long	k;
-	long	t;
 
 	source = convert_strptr_to_intptr(seeds, *size);
-	len = 0;
+	// len = 0;
 	i = 0;
+	source_range = ft_calloc(*size / 2, sizeof(long *));
 	while (i < *size)
 	{
-		len += source[i + 1];
+		source_range[i / 2] = ft_calloc(2, sizeof(long));
+		source_range[i / 2][0] = source[i];
+		source_range[i / 2][1] = source[i] + source[i + 1];
 		i += 2;
 	}
-	source_range = ft_calloc(len, sizeof(long));
-	i = 0;
-	k = 0;
-	while (i < *size)
-	{
-		t = 0;
-		while (t < source[i + 1])
-		{
-			source_range[k++] = source[i] + t;
-			t++;
-		}
-		i += 2;
-	}
-	*size = len;
 	return (source_range);
 }
 
@@ -112,7 +107,7 @@ static void	find_next_detination(t_list *ranges, long *source, long size)
 	long	*range_i;
 	long	i;
 
-	display_long_int_array(source, size, "source");
+	// display_long_int_array(source, size, "source");
 	i = 0;
 	while (i < size)
 	{
@@ -123,9 +118,9 @@ static void	find_next_detination(t_list *ranges, long *source, long size)
 			range_i = convert_strptr_to_intptr(range_str, 3);
 			if (source[i] >= range_i[1] && source[i] < (range_i[1] + range_i[2]))
 			{
-				printf("condition: %li >= %li && %li < (%li + %li) (%li)\n", source[i], range_i[1], source[i], range_i[1], range_i[2], (range_i[1] + range_i[2]));
+				// printf("condition: %li >= %li && %li < (%li + %li) (%li)\n", source[i], range_i[1], source[i], range_i[1], range_i[2], (range_i[1] + range_i[2]));
 				source[i] += range_i[0] - range_i[1];
-				printf("new_value = %li\n", source[i]);
+				// printf("new_value = %li\n", source[i]);
 				tmp = NULL;
 			}
 			if (tmp)

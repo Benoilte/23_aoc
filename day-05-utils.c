@@ -6,7 +6,7 @@
 /*   By: bebrandt <benoit.brandt@proton.me>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 07:28:47 by bebrandt          #+#    #+#             */
-/*   Updated: 2023/12/05 15:54:59 by bebrandt         ###   ########.fr       */
+/*   Updated: 2023/12/06 06:56:27 by bebrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_list	*set_range(char *line, int fd)
 	return (range);
 }
 
-long	*convert_strptr_to_intptr(char **seeds, int size)
+long	*convert_strptr_to_intptr(char **str, int size)
 {
 	int		i;
 	long	*loc;
@@ -36,7 +36,7 @@ long	*convert_strptr_to_intptr(char **seeds, int size)
 	loc = ft_calloc(size, sizeof(long));
 	while (i < size)
 	{
-		loc[i] = ft_atoi_long(seeds[i]);
+		loc[i] = ft_atoi_long(str[i]);
 		i++;
 	}
 	return (loc);

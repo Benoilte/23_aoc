@@ -6,7 +6,7 @@
 /*   By: bebrandt <benoit.brandt@proton.me>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 19:48:16 by bebrandt          #+#    #+#             */
-/*   Updated: 2023/12/05 15:58:20 by bebrandt         ###   ########.fr       */
+/*   Updated: 2023/12/06 07:47:51 by bebrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,4 +107,9 @@ void	add_copy(int i, int n, int *copy, int size);
 t_list	*set_range(char *line, int fd);
 long	*convert_strptr_to_intptr(char **seeds, int size);
 
+// day 06 utils
+
+int		*parse_input_d6(char *line, int *len);
+int		*convert_strtab_to_inttab(char **str, int size);
+long	parse_input_d6_p2(char *line);
 #endif
