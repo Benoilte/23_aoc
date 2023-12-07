@@ -6,7 +6,7 @@
 /*   By: bebrandt <benoit.brandt@proton.me>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 19:48:16 by bebrandt          #+#    #+#             */
-/*   Updated: 2023/12/06 07:47:51 by bebrandt         ###   ########.fr       */
+/*   Updated: 2023/12/07 10:26:41 by bebrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,4 +112,24 @@ long	*convert_strptr_to_intptr(char **seeds, int size);
 int		*parse_input_d6(char *line, int *len);
 int		*convert_strtab_to_inttab(char **str, int size);
 long	parse_input_d6_p2(char *line);
+
+// day 07 utils
+
+int	ft_check_full_house(int *card_strength, int j, int size);
+int	ft_check_pairs_or_full(int *card_strength, int j, int size);
+int	ft_check_high(char *hand);
+int ft_cards_strength(char card);
+
+typedef struct s_hand
+{
+	char			*hand;
+	int				type;
+	int				bid;
+	struct s_hand	*next;
+}		t_hand;
+
+t_hand	*lsthand_new(char *hand, int bid, int type);
+void	lsthand_addordered(t_hand **lst, t_hand *new);
+int 	ft_is_weaker(t_hand *new, t_hand *lst);
+
 #endif
