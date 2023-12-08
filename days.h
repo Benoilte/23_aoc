@@ -6,7 +6,7 @@
 /*   By: bebrandt <benoit.brandt@proton.me>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 19:48:16 by bebrandt          #+#    #+#             */
-/*   Updated: 2023/12/07 10:26:41 by bebrandt         ###   ########.fr       */
+/*   Updated: 2023/12/08 08:41:55 by bebrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,5 +131,11 @@ typedef struct s_hand
 t_hand	*lsthand_new(char *hand, int bid, int type);
 void	lsthand_addordered(t_hand **lst, t_hand *new);
 int 	ft_is_weaker(t_hand *new, t_hand *lst);
+
+// days 08 utils
+
+void	parse_content_day8(t_list *input);
+t_list	*get_all_starts(t_list *input);
+int		is_ends(t_list *starts);
 
 #endif

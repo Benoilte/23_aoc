@@ -6,7 +6,7 @@
 /*   By: bebrandt <benoit.brandt@proton.me>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 09:38:26 by bebrandt          #+#    #+#             */
-/*   Updated: 2023/12/05 16:00:11 by bebrandt         ###   ########.fr       */
+/*   Updated: 2023/12/08 07:23:39 by bebrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,14 @@ void	display_struct(t_list *lst, char data, char *text)
 	t_list	*tmp;
 
 	tmp = lst;
-	if (data == 'a')
-	{
-		display_str_array(((char **)(tmp->content)), text);
-		return ;
-	}
 	while (tmp)
 	{
 		if (data == 'd')
 			ft_printf("%s: %d\n", text, *((int *)(tmp->content)));
 		if (data == 's')
 			ft_printf("%s: %s\n", text, tmp->content);
+		if (data == 'a')
+			display_str_array((char **)(tmp->content), text);
 		tmp = tmp->next;
 	}
 }
