@@ -6,7 +6,7 @@
 /*   By: bebrandt <benoit.brandt@proton.me>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 20:05:57 by bebrandt          #+#    #+#             */
-/*   Updated: 2023/12/08 11:25:40 by bebrandt         ###   ########.fr       */
+/*   Updated: 2023/12/08 13:33:33 by bebrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,21 +51,24 @@ static unsigned long long	count_steps_part_2(char *instructions, t_list *input)
 {
 	t_list	*starts;
 	t_list	*tmp;
+	unsigned long long	gdc;
+	unsigned long long	lcm;
 	unsigned long long	steps;
-	unsigned long long	total;
+	// unsigned long long	total;
 
 	starts = get_all_starts(input);
 	// display_struct(starts, 's', "node");
-	total = 1;
+	// total = 1;
+	lcm = 1;
 	tmp = starts;
 	while (tmp)
 	{
-		printf("total: %llu\n", total);
+		printf("total: %llu\n", lcm);
 		steps = count_steps((char *)(tmp->content), instructions, input);
 		printf("node: %s - steps: %llu\n", tmp->content, steps);
-		if (total % steps)
-			total *= steps;
-		printf("total: %llu\n", total);
+		gdc = get_gdc(steps, lcm);
+		lcm = get_lcm(steps, lcm, gdc);
+		printf("total: %llu\n", lcm);
 		tmp = tmp->next;
 	}
 	// ends = 0;
@@ -84,7 +87,7 @@ static unsigned long long	count_steps_part_2(char *instructions, t_list *input)
 	// 	i++;
 	// 	steps++;
 	// }
-	return (total);
+	return (lcm);
 }
 
 static unsigned long long	count_steps(char *next_node, char *instructions, t_list *input)

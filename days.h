@@ -6,7 +6,7 @@
 /*   By: bebrandt <benoit.brandt@proton.me>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 19:48:16 by bebrandt          #+#    #+#             */
-/*   Updated: 2023/12/08 08:41:55 by bebrandt         ###   ########.fr       */
+/*   Updated: 2023/12/08 13:31:00 by bebrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,6 +136,7 @@ int 	ft_is_weaker(t_hand *new, t_hand *lst);
 
 void	parse_content_day8(t_list *input);
 t_list	*get_all_starts(t_list *input);
-int		is_ends(t_list *starts);
+unsigned long long	get_gdc(unsigned long long a, unsigned long long b);
+unsigned long long	get_lcm(unsigned long long a, unsigned long long b, unsigned long long gdc);
 
 #endif

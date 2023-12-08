@@ -6,7 +6,7 @@
 /*   By: bebrandt <benoit.brandt@proton.me>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 06:35:36 by bebrandt          #+#    #+#             */
-/*   Updated: 2023/12/08 09:11:57 by bebrandt         ###   ########.fr       */
+/*   Updated: 2023/12/08 13:28:13 by bebrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,17 +54,19 @@ t_list	*get_all_starts(t_list *input)
 	return (starts);
 }
 
-int	is_ends(t_list *starts)
+unsigned long long get_gdc(unsigned long long a, unsigned long long b)
 {
-	t_list *tmp;
-
-	tmp = starts;
-	while (tmp)
+	while (a != b)
 	{
-		if (((char *)(tmp->content))[2] == 'Z')
-			tmp = tmp->next;
+		if (a > b)
+			a -= b;
 		else
-			return (0);
+			b -= a;
 	}
-	return (1);
+	return (a);
+}
+
+unsigned long long get_lcm(unsigned long long a, unsigned long long b, unsigned long long gdc)
+{
+	return ((a * b) / gdc);
 }
