@@ -6,7 +6,7 @@
 /*   By: bebrandt <benoit.brandt@proton.me>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 20:04:42 by bebrandt          #+#    #+#             */
-/*   Updated: 2023/12/05 23:00:47 by bebrandt         ###   ########.fr       */
+/*   Updated: 2023/12/08 11:05:09 by bebrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,8 +112,7 @@ static void	find_next_detination(t_list *ranges, long *source, long size)
 	while (i < size)
 	{
 		tmp = ranges;
-		while (tmp)
-		{
+		while (tmp)		{
 			range_str = ft_split(tmp->content, ' ');
 			range_i = convert_strptr_to_intptr(range_str, 3);
 			if (source[i] >= range_i[1] && source[i] < (range_i[1] + range_i[2]))
