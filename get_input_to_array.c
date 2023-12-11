@@ -6,7 +6,7 @@
 /*   By: bebrandt <benoit.brandt@proton.me>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 09:04:33 by bebrandt          #+#    #+#             */
-/*   Updated: 2023/11/28 21:50:35 by bebrandt         ###   ########.fr       */
+/*   Updated: 2023/12/10 07:03:45 by bebrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ char	**from_txt_to_array_of_str(int fd, int size)
 	int		i;
 
 	is_line = 1;
-	input = ft_calloc(size, sizeof(char *));
+	input = ft_calloc(size + 1, sizeof(char *));
 	i = 0;
 	while (is_line)
 	{
@@ -72,6 +72,7 @@ char	**from_txt_to_array_of_str(int fd, int size)
 		else
 			is_line = 0;
 	}
+	input[i] = 0;
 	return (input);
 }
 

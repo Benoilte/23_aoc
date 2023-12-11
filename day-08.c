@@ -6,7 +6,7 @@
 /*   By: bebrandt <benoit.brandt@proton.me>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 20:05:57 by bebrandt          #+#    #+#             */
-/*   Updated: 2023/12/08 13:33:33 by bebrandt         ###   ########.fr       */
+/*   Updated: 2023/12/10 06:38:51 by bebrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static unsigned long long	count_steps_part_2(char *instructions, t_list *input)
 	{
 		printf("total: %llu\n", lcm);
 		steps = count_steps((char *)(tmp->content), instructions, input);
-		printf("node: %s - steps: %llu\n", tmp->content, steps);
+		// printf("node: %s - steps: %llu\n", tmp->content, steps);
 		gdc = get_gdc(steps, lcm);
 		lcm = get_lcm(steps, lcm, gdc);
 		printf("total: %llu\n", lcm);
