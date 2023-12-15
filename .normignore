@@ -10,3 +10,6 @@ day-08-utils.c
 day-08-lst.c
 day-10.c
 day-10-utils.c
+day-11.c
+day-11-utils.c
+*.c
